@@ -1,24 +1,15 @@
 var express = require('express');
-const { getBaresController,
-    getBarByIdController,
-    createBarController,
-    editBar,
-    deleteBar
-} = require('../controllers/bar');
+const { getBaresController, getBarByIdController, createBarController, deleteBar, editBar } = require('../controller/bar');
 var router = express.Router()
 
-// Estos callbacks parten siempre de '/aviones' que está definido en el 
-// módulo principal
+router.get('/', getBaresController); //trae todos
 
-/* GET aviones listing. */
-router.get('/', getBaresController);
-// GET /aviones/asdlkajsld
-router.get('/:id', getBarByIdController);
+router.get('/:id', getBarByIdController); // trae por id
 
-router.post('/', createBarController);
+router.post('/', createBarController); // crea
 
-router.put('/:id', editBar);
+router.put('/', editBar); // edita
 
-router.delete('/:id', deleteBar);
+router.delete('/:id', deleteBar); // borra
 
 module.exports = router;

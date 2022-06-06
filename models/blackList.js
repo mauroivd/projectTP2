@@ -1,7 +1,6 @@
-module.exports = function (id, nombre, direccion, cantidad) {
-    // this.id = id
-    // this.nombre = nombre
-    // this.direccion = direccion
-    // this.cantidad = cantidad
-
+module.exports = function (id, nombre, Bar) {
+    this.id = id
+    this.nombre = nombre
+    this.descripcion = descripcion
+    this.Bar = Bar
 }
