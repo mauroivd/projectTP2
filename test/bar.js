@@ -2,7 +2,6 @@ const chai = require('chai')
 const chaiHttp = require('chai-http')
 const { describe } = require('mocha')
 const app = require('../app')
-// import app from '../app'
 const { expect } = chai
 
 chai.use(chaiHttp)
@@ -15,6 +14,8 @@ describe("Bar API", () => {
                 .end((_, res) => {
                     expect(res).to.have.status(200)
                     expect(res).to.be.json
+                    expect(res.body).to.be.a('Array');
+                    expect(res.body).to.have.lengthOf(2);
                     expect(JSON.parse(res.text))
                         .to.eql([
                             {
@@ -48,6 +49,7 @@ describe("Bar API", () => {
                 .end((_, res) => {
                     expect(res).to.have.status(201) // CREATED
                     expect(res).to.be.json
+                    expect(res.body.id).is.not.equal(null)
                     expect(JSON.parse(res.text))
                         .to.eql({
                             id: 3,
@@ -83,7 +85,6 @@ describe("Bar API", () => {
                                 cantidad: 1000
                             }
                         ])
-                    // console.log(res.body)
                 })
         })
     })

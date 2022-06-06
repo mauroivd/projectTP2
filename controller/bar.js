@@ -33,7 +33,6 @@ module.exports = {
 
         // un proceso de creación del objeto avión
         const bar = new Bar(id, nombre, direccion, cantidad)
-        console.log(bar)
         // db.collection('bares').add(bar)
 
         //logica de negocio bar
@@ -52,7 +51,6 @@ module.exports = {
 
     deleteBar: function (req, res, next) {
         const bares = repositorioBares.filter(b => req.params.id != b.id)
-        // console.log(bar)
         repositorioBares = bares
         res.json(repositorioBares);
     },
